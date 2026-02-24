@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Hindi Writing Notebook</title>
+
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari&display=swap" rel="stylesheet">
+
+<!-- html2canvas for download -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+
+<body>
+
+<div class="wrapper">
+
+<div class="toolbar">
+    <button onclick="enableTyping()">Typing</button>
+    <button onclick="enableDrawing()">Drawing</button>
+    <button onclick="setColor('black')">Black</button>
+    <button onclick="setColor('red')">Red</button>
+    <button onclick="setColor('green')">Green</button>
+    <button onclick="setColor('blue')">Blue</button>
+
+    <br>
+
+    <button onclick="prevPage()">⬅ Prev</button>
+    <button onclick="nextPage()">Next ➡</button>
+    <button onclick="newPage()">New Page</button>
+    <button onclick="clearBoard()">Clear</button>
+    <button onclick="downloadPage()">Download Page</button>
+
+    <div class="page-counter" id="pageCounter"></div>
+</div>
+
+<div class="page">
+
+    <div class="header">
+        <div>
+            Date:
+            <span class="box"></span>
+            <span class="box"></span>
+            <span class="box"></span>
+            <span class="box"></span>
+        </div>
+        <div>
+            Page:
+            <span class="box"></span>
+        </div>
+    </div>
+
+    <div class="lines"></div>
+
+    <div id="typingArea" class="typing-area" contenteditable="true"></div>
+    <canvas id="writingCanvas"></canvas>
+
+</div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
