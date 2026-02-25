@@ -1,17 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
 <title>Hindi Writing Notebook</title>
 
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari&display=swap" rel="stylesheet">
 
-<!-- html2canvas for download -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
 
 <body>
+
+<div style="text-align:right; padding:10px;">
+    Welcome, {{ user.username }} |
+    <a href="{{ url_for('logout') }}">Logout</a>
+</div>
 
 <div class="wrapper">
 
@@ -30,12 +35,12 @@
     <button onclick="newPage()">New Page</button>
     <button onclick="clearBoard()">Clear</button>
     <button onclick="downloadPage()">Download Page</button>
+    <button onclick="downloadFullPDF()">Download Full PDF</button>
 
     <div class="page-counter" id="pageCounter"></div>
 </div>
 
 <div class="page">
-
     <div class="header">
         <div>
             Date:
@@ -54,11 +59,10 @@
 
     <div id="typingArea" class="typing-area" contenteditable="true"></div>
     <canvas id="writingCanvas"></canvas>
-
 </div>
 
 </div>
 
-<script src="script.js"></script>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
